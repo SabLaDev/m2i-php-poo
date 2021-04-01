@@ -32,7 +32,7 @@
                 <label for="message" class="form-label">Message</label>
                 <textarea class="form-control" id="message" name="message"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Ajouter un article</button>
+            <button type="button" class="btn btn-primary">Ajouter un article</button>
         </form>
     </div>
 
@@ -46,16 +46,14 @@
 
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
 
 require_once "autoload.php";
 
 $dba = new DBA();
 $am = new ArticleManager($dba->getPDO());
 
-if (isset($_POST['titre'])){
+if (isset($_POST['titre'])) {
     $article = [
         "titre" => htmlspecialchars($_POST['titre']),
         "auteur" => htmlspecialchars($_POST['auteur']),
